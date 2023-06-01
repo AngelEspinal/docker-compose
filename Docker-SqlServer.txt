@@ -1,0 +1,15 @@
+//imagen  sqlserver 2022
+docker pull mcr.microsoft.com/mssql/server:2022-latest
+
+//  crear contenedor  servidor puerto,nombre del conteendor y correrlo 
+ docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=angelxxr1999" -p 14034:1433 --name ContainerSQL2022 -d mcr.microsoft.com/mssql/server:2022-latest
+
+//  la forma mejorada del anterior
+
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=angelxxr1999" -p 14033:1433 --name ContainerSQL2022 -v d:/Docker-SqlServer2022/2022/data:/var/opt/mssql/data -v d:/Docker-SqlServer2022/2022/log:/var/opt/mssql/log -v d:/Docker-SqlServer2022/2022/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/mssql/server:2022-latest
+
+// como migarar una base de datos a un contenedor sqlserver 
+docker cp D:\AlumnosEx.bak d6eff5d86c5d:/var/opt/mssql/data
+#------------exportar  imagenes
+docker save -o C:\Users\angel\Desktop\Innovar-practicas\InfoLimpieza\images\image-backend.tar infolimpieza-api
+docker save -o C:\Users\angel\Desktop\Innovar-practicas\InfoLimpieza\images\image-frontend.tar infolimpieza-frontend
