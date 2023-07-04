@@ -23,8 +23,8 @@ services:
     hostname: api
     restart: always  # Configuración para reinicio automático
     environment:
-      - DB_USERNAME= sa
-      - DB_PASSWORD= @ngelXXR1999
+      - SA_USERNAME= sa
+      - SA_PASSWORD= @ngelXXR1999
     networks:
       - InfoNetwork
     ports:
